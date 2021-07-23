@@ -2,6 +2,7 @@ A TypeScript starter for Next.js that includes all you need to build amazing pro
 
 - **Next.js**
 - **TypeScript**
+- **Redux-toolkit**
 - **Material-ui**
 - **Emotion**
 - ESLint
