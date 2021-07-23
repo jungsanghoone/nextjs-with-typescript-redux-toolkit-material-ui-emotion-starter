@@ -22,3 +22,7 @@ If you prefer you can clone this repository and run the following commands insid
 2. `yarn dev`;
 
 To view the project open `http://localhost:3000`.
+
+## **Related repository**
+
+- [nextjs-material-emotion](https://github.com/jungsanghoone/nextjs-material-emotion)
