@@ -8,16 +8,14 @@ import MuiDrawer from '@material-ui/core/Drawer';
 import MuiAppBar, {
   AppBarProps as MuiAppBarProps,
 } from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
 import { useDrawer } from '../hooks/useDrawer';
 import { ReactNode } from 'react';
+import { Typography } from '@material-ui/core';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 const leftSideWidth = 80;
 
 interface IChildrenComponent {
@@ -41,10 +39,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  maxHeight: theme.spacing(8),
+  //maxHeight: theme.spacing(8),
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
+  //...theme.mixins.toolbar,
+  minHeight: theme.spacing(7.5),
 }));
 
 interface AppBarProps extends MuiAppBarProps {
@@ -86,35 +85,25 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Layout({ children }: IChildrenComponent): JSX.Element {
-  const { open, drawerOpen } = useDrawer();
+  const { open } = useDrawer();
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={drawerOpen}
-            edge="start"
-            sx={{
-              marginRight: '36px',
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">
-            eSignon
-          </Typography> */}
-        </Toolbar>
-      </AppBar>
+      <AppBar
+        position="fixed"
+        open={open}
+        sx={{
+          height: theme => theme.spacing(7.5),
+          minHeight: theme => theme.spacing(7.5),
+          maxHeight: theme => theme.spacing(7.5),
+        }}
+      ></AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <Image src={eSignonLogo} alt="eSignon Logo" width={120} height={64} />
+          <Image src={eSignonLogo} alt="eSignon Logo" width={120} height={60} />
         </DrawerHeader>
-        <Divider />
+        <Divider sx={{ borderColor: '#e3e3e3', mx: 1.25, mt: -0.125 }} />
         123
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>

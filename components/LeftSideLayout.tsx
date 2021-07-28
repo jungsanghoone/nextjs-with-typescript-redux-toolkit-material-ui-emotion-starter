@@ -13,12 +13,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from 'next/link';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import SettingsIcon from '@material-ui/icons/Settings';
-import ColorLensIcon from '@material-ui/icons/ColorLens';
-import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import { usePage } from '../hooks/usePage';
 import { useDrawer } from '../hooks/useDrawer';
+import Image from 'next/image';
 
 const drawerWidth = 80;
 
@@ -28,7 +25,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
+  //...theme.mixins.toolbar,
+  minHeight: theme.spacing(7.5),
 }));
 
 const openedMixin = (): CSSObject => ({
@@ -77,22 +75,26 @@ export default function LeftSideLayout(): JSX.Element {
     {
       title: '문서',
       href: '/documents/document',
-      icon: <WorkOutlineIcon />,
+      selectIcon: '/images/icon-document-blue.png',
+      icon: '/images/icon-document.png',
     },
     {
       title: '서식',
       href: '/templates/template',
-      icon: <ColorLensIcon />,
+      selectIcon: '/images/icon-form-blue.png',
+      icon: '/images/icon-form.png',
     },
     {
       title: '브랜딩',
       href: '/branding',
-      icon: <MailOutlineIcon />,
+      selectIcon: '/images/icon-branding-blue.png',
+      icon: '/images/icon-branding.png',
     },
     {
       title: '설정',
       href: '/settings',
-      icon: <SettingsIcon />,
+      selectIcon: '/images/icon-set-blue.png',
+      icon: '/images/icon-set.png',
     },
   ];
   return (
@@ -110,37 +112,39 @@ export default function LeftSideLayout(): JSX.Element {
             </IconButton>
           )}
         </DrawerHeader>
-        <Divider />
         <List sx={{ padding: 0 }}>
-          {leftMenu.map(info => (
-            <Link href={info.href} passHref key={info.title}>
-              <ListItemButton
-                sx={{
-                  bgcolor: info.href === relativeUrl ? '#FFFFFF' : '#EEEEEE',
-                }}
-              >
-                <ListItemIcon
+          {leftMenu.map((info, index) => (
+            <>
+              <Link href={info.href} passHref key={info.title}>
+                <ListItemButton
                   sx={{
-                    color:
-                      info.href === relativeUrl
-                        ? '#0199EB'
-                        : 'rgba(0, 0, 0, 0.54)',
+                    bgcolor: info.href === relativeUrl ? '#FFFFFF' : '#EEEEEE',
                   }}
                 >
-                  {info.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={info.title}
-                  primaryTypographyProps={{
-                    color:
-                      info.href === relativeUrl
-                        ? '#0199EB'
-                        : 'rgba(0, 0, 0, 0.54)',
-                    fontWeight: info.href === relativeUrl ? 'bold' : 400,
-                  }}
-                />
-              </ListItemButton>
-            </Link>
+                  <Image
+                    src={
+                      info.href === relativeUrl ? info.selectIcon : info.icon
+                    }
+                    alt={info.title}
+                    width="32"
+                    height="32"
+                  />
+                  <ListItemText
+                    primary={info.title}
+                    primaryTypographyProps={{
+                      color:
+                        info.href === relativeUrl
+                          ? '#0199EB'
+                          : 'rgba(0, 0, 0, 0.54)',
+                      fontWeight: info.href === relativeUrl ? 'bold' : 400,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+              {leftMenu.length !== index + 1 && (
+                <Divider sx={{ borderColor: '#e3e3e3', mx: 0.75 }} />
+              )}
+            </>
           ))}
         </List>
       </Drawer>
