@@ -10,14 +10,11 @@ import MuiAppBar, {
 } from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
-
 import { useDrawer } from '../hooks/useDrawer';
 import { ReactNode } from 'react';
-import { Typography } from '@material-ui/core';
 
 const drawerWidth = 200;
 const leftSideWidth = 80;
-
 interface IChildrenComponent {
   children: ReactNode;
 }
@@ -29,20 +26,13 @@ const openedMixin = (): CSSObject => ({
 const closedMixin = (theme: Theme): CSSObject => ({
   overflowX: 'hidden',
   width: `calc(${theme.spacing(0)})`,
-  /*width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(9)} + 1px)`,
-  },*/
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  //maxHeight: theme.spacing(8),
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  //...theme.mixins.toolbar,
   minHeight: theme.spacing(7.5),
 }));
 

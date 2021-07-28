@@ -4,7 +4,6 @@ import { styled, CSSObject } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import MuiDrawer from '@material-ui/core/Drawer';
 import MuiListItemButton from '@material-ui/core/ListItemButton';
-import MuiListItemIcon from '@material-ui/core/ListItemIcon';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -54,14 +53,6 @@ const ListItemButton = styled(MuiListItemButton)(({ theme }) => ({
   flexDirection: 'column',
   width: theme.spacing(10),
   height: theme.spacing(10),
-}));
-
-const ListItemIcon = styled(MuiListItemIcon)(({ theme }) => ({
-  minWidth: 'auto',
-  '& .MuiSvgIcon-root': {
-    width: theme.spacing(4),
-    height: theme.spacing(4),
-  },
 }));
 
 export default function LeftSideLayout(): JSX.Element {
