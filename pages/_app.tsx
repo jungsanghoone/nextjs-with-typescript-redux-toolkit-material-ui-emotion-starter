@@ -5,12 +5,15 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import theme from '../src/theme';
+import theme from '../components/theme';
+import wrapper from '../store';
+import Layout from '../components/Layout';
+import LeftSideLayout from '../components/LeftSideLayout';
 
 const cache = createCache({ key: 'css', prepend: true });
 cache.compat = true;
 
-export default function MyApp(props: AppProps): JSX.Element {
+function MyApp(props: AppProps): JSX.Element {
   const { Component, pageProps } = props;
   return (
     <CacheProvider value={cache}>
@@ -20,8 +23,13 @@ export default function MyApp(props: AppProps): JSX.Element {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <LeftSideLayout />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </CacheProvider>
   );
 }
+
+export default wrapper.withRedux(MyApp);
