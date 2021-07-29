@@ -12,6 +12,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import { useDrawer } from '../hooks/useDrawer';
 import { ReactNode } from 'react';
+import SideDetailMenu from './sidebar/SideDetailMenu';
 
 const drawerWidth = 200;
 const leftSideWidth = 80;
@@ -74,7 +75,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Layout({ children }: IChildrenComponent): JSX.Element {
+function Layout({ children }: IChildrenComponent): JSX.Element {
   const { open } = useDrawer();
 
   return (
@@ -94,7 +95,7 @@ export default function Layout({ children }: IChildrenComponent): JSX.Element {
           <Image src={eSignonLogo} alt="eSignon Logo" width={120} height={60} />
         </DrawerHeader>
         <Divider sx={{ borderColor: '#e3e3e3', mx: 1.25, mt: -0.125 }} />
-        123
+        <SideDetailMenu />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
         <DrawerHeader />
@@ -103,3 +104,5 @@ export default function Layout({ children }: IChildrenComponent): JSX.Element {
     </Box>
   );
 }
+
+export default React.memo(Layout);

@@ -1,5 +1,4 @@
 import { IEnum } from '.';
-
 export class Page implements IEnum<Page> {
   private static _values = new Array<Page>();
 

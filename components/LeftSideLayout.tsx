@@ -41,7 +41,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function LeftSideLayout(): JSX.Element {
+function LeftSideLayout(): JSX.Element {
   const { open, drawerOpen, drawerClose } = useDrawer();
 
   return (
@@ -75,3 +75,5 @@ export default function LeftSideLayout(): JSX.Element {
     </Box>
   );
 }
+
+export default React.memo(LeftSideLayout);
