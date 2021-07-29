@@ -1,9 +1,4 @@
-import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import { IEnum } from '.';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import SettingsIcon from '@material-ui/icons/Settings';
-import ColorLensIcon from '@material-ui/icons/ColorLens';
-import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 
 export class Page implements IEnum<Page> {
   private static _values = new Array<Page>();
@@ -12,36 +7,32 @@ export class Page implements IEnum<Page> {
     '/documents/document',
     '문서',
     '문서 설명~~~',
-    'eSignon | 문서',
-    'eSignon 문서 설명',
-    WorkOutlineIcon,
+    '/images/icon-document-blue.png',
+    '/images/icon-document.png',
   );
 
   public static readonly TEMPLATE = new Page(
     '/templates/template',
     '서식',
     '서식 설명~~~',
-    'eSignon | 서식',
-    'eSignon 서식 설명',
-    MailOutlineIcon,
+    '/images/icon-form-blue.png',
+    '/images/icon-form.png',
   );
 
   public static readonly BRANDING = new Page(
     '/branding',
     '브랜딩',
     '브랜딩 설명~~~',
-    'eSignon | 브랜딩',
-    'eSignon 브랜딩 설명',
-    ColorLensIcon,
+    '/images/icon-branding-blue.png',
+    '/images/icon-branding.png',
   );
 
   public static readonly SETTINGS = new Page(
     '/settings',
     '설정',
     '설정 설명~~~',
-    'eSignon | 설정',
-    'eSignon 설정 설명',
-    SettingsIcon,
+    '/images/icon-set-blue.png',
+    '/images/icon-set.png',
   );
 
   /**
@@ -49,17 +40,15 @@ export class Page implements IEnum<Page> {
    * @param relativeUrl relative url
    * @param pageTitle page title
    * @param pageDescription page description
-   * @param title seo title
-   * @param metaDescription seo meta description
+   * @param selectIcon page select icon
    * @param icon page icon
    */
   private constructor(
     public readonly relativeUrl: string,
     public readonly pageTitle: string,
     public readonly pageDescription: string,
-    public readonly title: string,
-    public readonly metaDescription: string,
-    public readonly icon: React.ComponentType<SvgIconProps>,
+    public readonly selectIcon: string,
+    public readonly icon: string,
   ) {
     Page._values.push(this);
   }
