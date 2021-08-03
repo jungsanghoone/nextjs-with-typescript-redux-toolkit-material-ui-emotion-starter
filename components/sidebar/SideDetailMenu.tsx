@@ -30,7 +30,7 @@ function SideDetailMenu(): JSX.Element {
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <CssBaseline />
         {menu}
       </Box>

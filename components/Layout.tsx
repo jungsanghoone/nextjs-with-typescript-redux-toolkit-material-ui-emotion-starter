@@ -14,7 +14,7 @@ import { useDrawer } from '../hooks/useDrawer';
 import { ReactNode } from 'react';
 import SideDetailMenu from './sidebar/SideDetailMenu';
 
-const drawerWidth = 200;
+const drawerWidth = 220;
 const leftSideWidth = 80;
 interface IChildrenComponent {
   children: ReactNode;

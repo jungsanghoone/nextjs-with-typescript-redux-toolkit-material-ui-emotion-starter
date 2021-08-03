@@ -2,45 +2,29 @@ import * as React from 'react';
 import { NextPage } from 'next';
 import wrapper from '../../store';
 import { changePage } from '../../store/page/pageSlice';
-import { Page } from '../../constants';
 import { usePage } from '../../hooks/usePage';
-import MuiBox, { BoxProps as MuiBoxProps } from '@material-ui/core/Box';
-import { styled } from '@material-ui/core/styles';
+import { useDocuments } from '../../hooks/useDocuments';
+import { Page, DocumentMenu } from '../../constants';
+import { changeDocCondition } from '../../store/documents/documentsSlice';
 import { useDrawer } from '../../hooks/useDrawer';
+import CustomMainBox from '../../components/cmn/CustomMainBox';
 
 export const getServerSideProps = wrapper.getServerSideProps(store => () => {
-  console.log('2. Page.getServerSideProps uses the store to dispatch things');
+  console.log('document Page.getServerSideProps');
+  store.dispatch(changePage({ relativeUrl: Page.DOCUMENT.relativeUrl }));
   store.dispatch(
-    changePage({
-      relativeUrl: Page.DOCUMENT.relativeUrl,
+    changeDocCondition({
+      docSearchCondition: DocumentMenu.ALL.docSearchCondition,
     }),
   );
 });
 
-interface BoxProps extends MuiBoxProps {
-  open?: boolean;
-}
-
-const Box = styled(MuiBox, {
-  shouldForwardProp: prop => prop !== 'open',
-})<BoxProps>(({ theme, open }) => ({
-  ...(open && {
-    padding: theme.spacing(1),
-  }),
-  ...(!open && {
-    padding: theme.spacing(1, 1, 1, 11),
-  }),
-}));
-
 const Document: NextPage = () => {
   const { selectedPage } = usePage();
+  const { selectedCondition } = useDocuments();
   const { open } = useDrawer();
-  console.log('page', selectedPage);
-  return (
-    <Box component="div" open={open}>
-      <div>Document Page!</div>
-    </Box>
-  );
+  console.log('page', selectedPage, selectedCondition);
+  return <CustomMainBox open={open}>Document Page!</CustomMainBox>;
 };
 
 export default Document;
