@@ -20,7 +20,7 @@ const ListItemButton = styled(MuiListItemButton, {
   },
 }));
 
-export default function CustomListItemButton({
+function CustomListItemButton({
   children,
   onClick,
   selected,
@@ -31,3 +31,5 @@ export default function CustomListItemButton({
     </ListItemButton>
   );
 }
+
+export default React.memo(CustomListItemButton);

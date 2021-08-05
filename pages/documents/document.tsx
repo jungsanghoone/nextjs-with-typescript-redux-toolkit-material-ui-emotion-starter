@@ -2,8 +2,6 @@ import * as React from 'react';
 import { NextPage } from 'next';
 import wrapper from '../../store';
 import { changePage } from '../../store/page/pageSlice';
-import { usePage } from '../../hooks/usePage';
-import { useDocuments } from '../../hooks/useDocuments';
 import { Page, DocumentMenu } from '../../constants';
 import { changeDocCondition } from '../../store/documents/documentsSlice';
 import { useDrawer } from '../../hooks/useDrawer';
@@ -20,10 +18,10 @@ export const getServerSideProps = wrapper.getServerSideProps(store => () => {
 });
 
 const Document: NextPage = () => {
-  const { selectedPage } = usePage();
-  const { selectedCondition } = useDocuments();
+  //const { selectedPage } = usePage();
+  //const { selectedCondition } = useDocuments();
   const { open } = useDrawer();
-  console.log('page', selectedPage, selectedCondition);
+  //console.log('page', selectedPage, selectedCondition);
   return <CustomMainBox open={open}>Document Page!</CustomMainBox>;
 };
 

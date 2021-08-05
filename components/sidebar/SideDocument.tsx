@@ -7,7 +7,7 @@ import DocumentMenuList from '../documents/DocumentMenuList';
 import List from '@material-ui/core/List';
 import { DocumentMenu } from '../../constants';
 
-export default function SideDocument(): JSX.Element {
+function SideDocument(): JSX.Element {
   return (
     <>
       <Box sx={{ width: '100%', maxWidth: 220, bgcolor: 'background.paper' }}>
@@ -38,3 +38,5 @@ export default function SideDocument(): JSX.Element {
     </>
   );
 }
+
+export default React.memo(SideDocument);

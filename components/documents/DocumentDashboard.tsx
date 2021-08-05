@@ -28,7 +28,7 @@ const ListItemText = styled(MuiListItemText)(({ theme }) => ({
   },
 }));
 
-export default function DocumentDashboard(): JSX.Element {
+function DocumentDashboard(): JSX.Element {
   const [important, setImportant] = React.useState(false);
   const handleImportant = () => setImportant(!important);
   return (
@@ -63,3 +63,5 @@ export default function DocumentDashboard(): JSX.Element {
     </nav>
   );
 }
+
+export default React.memo(DocumentDashboard);

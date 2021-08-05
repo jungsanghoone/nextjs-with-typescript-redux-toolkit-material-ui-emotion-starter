@@ -6,6 +6,7 @@ import counter from './counter/counterSlice';
 import page from './page/pageSlice';
 import drawer from './drawer/drawerSlice';
 import documents from './documents/documentsSlice';
+import companyInfo from './companyInfo/companyInfoSlice';
 
 export const rootReducer = (state: any, action: AnyAction) => {
   if (action.type === HYDRATE) {
@@ -19,6 +20,7 @@ export const rootReducer = (state: any, action: AnyAction) => {
     page,
     drawer,
     documents,
+    companyInfo,
   })(state, action);
 };
 

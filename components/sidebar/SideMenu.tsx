@@ -22,7 +22,7 @@ const ListItemButton = styled(MuiListItemButton)(({ theme }) => ({
   height: theme.spacing(10),
 }));
 
-export default function SideMenu(props: Props): JSX.Element {
+function SideMenu(props: Props): JSX.Element {
   const { selectedPage } = usePage();
   const { relativeUrl } = selectedPage || '/documents/document';
   const { href, title, selectIcon, icon, end } = props;
@@ -53,3 +53,5 @@ export default function SideMenu(props: Props): JSX.Element {
     </>
   );
 }
+
+export default React.memo(SideMenu);

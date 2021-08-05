@@ -8,8 +8,7 @@ import { Page } from '../constants';
 import { changePage } from '../store/page/pageSlice';
 import { connect } from 'react-redux';
 
-function Index({ store }): JSX.Element {
-  console.log('props', store);
+function Index(): JSX.Element {
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
@@ -27,10 +26,6 @@ function Index({ store }): JSX.Element {
 export const getServerSideProps = wrapper.getServerSideProps(
   store =>
     async ({ req, res, ...etc }) => {
-      console.log(
-        '2. Page.getServerSideProps uses the store to dispatch things',
-      );
-
       await store.dispatch(
         changePage({ relativeUrl: Page.DOCUMENT.relativeUrl }),
       );

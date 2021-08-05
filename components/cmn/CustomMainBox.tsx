@@ -23,13 +23,12 @@ const Box = styled(MuiBox, {
   }),
 }));
 
-export default function CustomMainBox({
-  children,
-  open,
-}: IChildrenComponent): JSX.Element {
+function CustomMainBox({ children, open }: IChildrenComponent): JSX.Element {
   return (
     <Box component="div" open={open}>
       {children}
     </Box>
   );
 }
+
+export default React.memo(CustomMainBox);

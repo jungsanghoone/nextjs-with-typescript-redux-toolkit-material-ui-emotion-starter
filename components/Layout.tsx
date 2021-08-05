@@ -13,6 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import { useDrawer } from '../hooks/useDrawer';
 import { ReactNode } from 'react';
 import SideDetailMenu from './sidebar/SideDetailMenu';
+import SideCompanyInfo from './sidebar/SideCompanyInfo';
 
 const drawerWidth = 220;
 const leftSideWidth = 80;
@@ -96,6 +97,7 @@ function Layout({ children }: IChildrenComponent): JSX.Element {
         </DrawerHeader>
         <Divider sx={{ borderColor: '#e3e3e3', mx: 1.25, mt: -0.125 }} />
         <SideDetailMenu />
+        <SideCompanyInfo />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
         <DrawerHeader />

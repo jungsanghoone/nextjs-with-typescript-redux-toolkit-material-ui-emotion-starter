@@ -3,7 +3,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 
-export default function DocumentStartButton(): JSX.Element {
+function DocumentStartButton(): JSX.Element {
   return (
     <nav aria-label="document start">
       <List sx={{ display: 'flex', height: theme => theme.spacing(10) }}>
@@ -19,3 +19,5 @@ export default function DocumentStartButton(): JSX.Element {
     </nav>
   );
 }
+
+export default React.memo(DocumentStartButton);
