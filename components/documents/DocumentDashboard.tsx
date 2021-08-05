@@ -1,11 +1,10 @@
 import * as React from 'react';
 import MuiListItemText from '@material-ui/core/ListItemText';
-
+import Box from '@material-ui/core/Box';
 import { styled } from '@material-ui/core/styles';
 import Image from 'next/image';
 import starIcon from '../../public/images/icon-star-border.png';
 import starSelectIcon from '../../public/images/icon-star.png';
-import Box from '@material-ui/core/Box';
 import CustomListItemButton from '../cmn/CustomListItemButton';
 
 const ListItemText = styled(MuiListItemText)(({ theme }) => ({
@@ -48,7 +47,7 @@ function DocumentDashboard(): JSX.Element {
             primary={
               <Image
                 src={important ? starSelectIcon : starIcon}
-                alt={'document important'}
+                alt="document important"
                 width="32"
                 height="32"
               />

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
 import DocumentStartButton from '../documents/DocumentStartButton';
 import DocumentDashboard from '../documents/DocumentDashboard';
 import DocumentMenuList from '../documents/DocumentMenuList';
-import List from '@material-ui/core/List';
 import { DocumentMenu } from '../../constants';
 
 function SideDocument(): JSX.Element {

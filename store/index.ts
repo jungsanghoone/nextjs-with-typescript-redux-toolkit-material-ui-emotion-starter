@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import { createWrapper, MakeStore, Context } from 'next-redux-wrapper';
-import { rootReducer, RootState } from './rootReducer';
 import logger from 'redux-logger';
+import { rootReducer, RootState } from './rootReducer';
 
 const dev = process.env.NODE_ENV === 'development';
 const store = configureStore({
@@ -17,8 +17,8 @@ const store = configureStore({
 });
 
 const setupStore = (context: any): EnhancedStore => store;
-//const makeStore: MakeStore = (context: any) => setupStore(context);
-const makeStore: MakeStore = (context: Context) => setupStore(context);
+const makeStore: MakeStore<typeof store> = (context: Context) =>
+  setupStore(context);
 export const wrapper = createWrapper(makeStore, {
   debug: dev,
 });

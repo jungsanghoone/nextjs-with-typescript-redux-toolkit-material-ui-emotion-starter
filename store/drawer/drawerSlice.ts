@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { createSlice } from '@reduxjs/toolkit';
 import DrawerState from '../../constants/Drawer';
 import { RootState } from '../rootReducer';

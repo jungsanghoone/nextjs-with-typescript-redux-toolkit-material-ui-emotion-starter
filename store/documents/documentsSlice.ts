@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DocumentMenu } from '../../constants';
 import { RootState } from '../rootReducer';

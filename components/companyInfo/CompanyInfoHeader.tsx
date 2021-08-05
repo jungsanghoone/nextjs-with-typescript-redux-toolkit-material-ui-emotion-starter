@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import Image from 'next/image';
 import Box from '@material-ui/core/Box';

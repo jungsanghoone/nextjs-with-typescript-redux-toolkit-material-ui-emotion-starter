@@ -4,7 +4,10 @@ import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { makeHeader } from './makeComm';
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
-export const fetcherHeader = async (url, token) => {
+export const fetcherHeader = async (
+  url: string,
+  token: string,
+): Promise<any> => {
   const response = await axios.get(url, makeHeader(token));
   return response.data;
 };
@@ -70,35 +73,10 @@ interface Data {
   error: any;
   isLoadingMore: boolean | undefined;
   size: number;
-  setSize: (
-    size: number | ((size: number) => number),
-  ) => Promise<any[] | undefined>;
+  setSize: (size: number) => Promise<any[] | undefined>;
   isReachingEnd: boolean | undefined;
 }
 
-interface CompanyInfo {
-  header: never[];
-  body: never[];
-}
-
-export const useCompanyInfo = (path: string) => {
-  if (!path) {
-    throw new Error('Path is required');
-  }
-
-  const url = path;
-  const requestHeader = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization:
-        'esignon jSowsoc6+Tu6tB8iHjS57DmnaJ0qkrrJgiCcCRqXEqJQO5edMdAeHlytcSVXpKCpHQNEXmJ2eGT/DqF+OJThbg==',
-    },
-  };
-
-  const { data, error } = useSWR(url, axios.get(url, requestHeader));
-  console.log('data', data, error);
-  return { data, error };
-};
 export const usePaginatePosts = (path: string): Data => {
   if (!path) {
     throw new Error('Path is required');

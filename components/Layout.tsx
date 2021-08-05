@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import * as React from 'react';
+import { ReactNode } from 'react';
 import Image from 'next/image';
-import eSignonLogo from '../public/images/eSignon_logo.png';
 import { styled, Theme, CSSObject } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import MuiDrawer from '@material-ui/core/Drawer';
@@ -10,10 +10,10 @@ import MuiAppBar, {
 } from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
-import { useDrawer } from '../hooks/useDrawer';
-import { ReactNode } from 'react';
 import SideDetailMenu from './sidebar/SideDetailMenu';
+import { useDrawer } from '../hooks/useDrawer';
 import SideCompanyInfo from './sidebar/SideCompanyInfo';
+import eSignonLogo from '../public/images/eSignon_logo.png';
 
 const drawerWidth = 220;
 const leftSideWidth = 80;
@@ -90,7 +90,7 @@ function Layout({ children }: IChildrenComponent): JSX.Element {
           minHeight: theme => theme.spacing(7.5),
           maxHeight: theme => theme.spacing(7.5),
         }}
-      ></AppBar>
+      />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <Image src={eSignonLogo} alt="eSignon Logo" width={120} height={60} />

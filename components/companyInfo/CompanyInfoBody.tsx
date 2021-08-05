@@ -1,13 +1,14 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import { styled } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import Image from 'next/image';
 import LinearProgress, {
   linearProgressClasses,
 } from '@material-ui/core/LinearProgress';
 import { Grid } from '@material-ui/core';
 import CustomTypography from '../cmn/CustomTypography';
 import newIcon from '../../public/images/icon-new.png';
-import Image from 'next/image';
 import useCompanyProductInfo from '../../hooks/useCompanyProductInfo';
 import CircularIndeterminate from '../cmn/CustomCircular';
 

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import * as React from 'react';
 import { NextPage } from 'next';
 import wrapper from '../store';
@@ -7,15 +8,14 @@ import { usePage } from '../hooks/usePage';
 import { useDrawer } from '../hooks/useDrawer';
 import CustomMainBox from '../components/cmn/CustomMainBox';
 
-export const getServerSideProps = wrapper.getServerSideProps(store => () => {
-  console.log('2. Page.getServerSideProps uses the store to dispatch things');
+export const getStaticProps = wrapper.getStaticProps(store => () => {
   store.dispatch(
     changePage({
       relativeUrl: Page.BRANDING.relativeUrl,
     }),
   );
+  return { props: {} };
 });
-
 const Branding: NextPage = () => {
   const { selectedPage } = usePage();
   const { open } = useDrawer();

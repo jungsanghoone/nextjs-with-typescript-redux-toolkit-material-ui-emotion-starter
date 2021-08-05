@@ -47,7 +47,7 @@ function LeftSideLayout(): JSX.Element {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Drawer variant="permanent" open={true}>
+      <Drawer variant="permanent" open>
         <DrawerHeader>
           {open === true ? (
             <IconButton onClick={drawerClose}>

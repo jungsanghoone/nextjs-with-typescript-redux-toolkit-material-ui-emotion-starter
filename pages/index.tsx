@@ -1,12 +1,13 @@
+/* eslint-disable import/no-named-as-default */
 import * as React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import { connect } from 'react-redux';
 import Box from '@material-ui/core/Box';
 import Example from '../components/Example';
 import wrapper from '../store';
 import { Page } from '../constants';
 import { changePage } from '../store/page/pageSlice';
-import { connect } from 'react-redux';
 
 function Index(): JSX.Element {
   return (
@@ -23,13 +24,13 @@ function Index(): JSX.Element {
   );
 }
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  store =>
-    async ({ req, res, ...etc }) => {
-      await store.dispatch(
-        changePage({ relativeUrl: Page.DOCUMENT.relativeUrl }),
-      );
-    },
-);
+export const getStaticProps = wrapper.getStaticProps(store => async () => {
+  await store.dispatch(
+    changePage({
+      relativeUrl: Page.DOCUMENT.relativeUrl,
+    }),
+  );
+  return { props: {} };
+});
 
 export default connect(state => state)(Index);
