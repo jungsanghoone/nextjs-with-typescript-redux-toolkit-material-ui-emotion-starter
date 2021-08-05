@@ -6,6 +6,7 @@ import { Grid } from '@material-ui/core';
 import CustomTypography from '../cmn/CustomTypography';
 import useCompanyProductInfo from '../../hooks/useCompanyProductInfo';
 import CircularIndeterminate from '../cmn/CustomCircular';
+import crownIcon from '../../public/images/icon-crown.png';
 
 function CompanyInfoHeader(): JSX.Element {
   const { data, isLoading, isError } = useCompanyProductInfo();
@@ -37,6 +38,16 @@ function CompanyInfoHeader(): JSX.Element {
           mx: 1,
         }}
       >
+        <Box
+          sx={{
+            mr: -3.75,
+            mt: -8.375,
+            zIndex: 1,
+            transform: 'rotate(-20deg)',
+          }}
+        >
+          <Image src={crownIcon} alt="company leader" width="30" height="20" />
+        </Box>
         <Grid item>
           <Avatar sx={{ width: 60, height: 60 }}>
             <Image
