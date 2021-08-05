@@ -9,6 +9,7 @@ import CustomTypography from '../cmn/CustomTypography';
 import newIcon from '../../public/images/icon-new.png';
 import Image from 'next/image';
 import useCompanyProductInfo from '../../hooks/useCompanyProductInfo';
+import CircularIndeterminate from '../cmn/CustomCircular';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 4,
@@ -25,7 +26,9 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 function CompanayInfoBody(): JSX.Element {
   const { data, isLoading, isError } = useCompanyProductInfo();
-  console.log(`data, isLoading, isError`, data, isLoading, isError);
+
+  if (isLoading) return <CircularIndeterminate />;
+  if (isError) return <div>failed to load</div>;
 
   const { body } = data;
   const { workflow_usage, workflow_capacity } = body;
