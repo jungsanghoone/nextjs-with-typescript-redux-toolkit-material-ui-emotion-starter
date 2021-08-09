@@ -1,19 +1,9 @@
 import useSWR from 'swr';
 import { fetcherHeader } from '../libs/useRequest';
+import { ICompanyInfo } from '../constants/CompanyInfo';
 
 interface CompanyInfo {
-  body: {
-    country_code: string;
-    workflow_capacity: string | number;
-    workflow_usage: number;
-    expiry_date: string;
-    create_email: string;
-    name: string;
-    contract_company_name: string;
-    sign_up_type: string;
-    grade_code: string;
-    create_date: string;
-  };
+  body: ICompanyInfo;
 }
 
 interface Props {
@@ -23,9 +13,10 @@ interface Props {
 }
 
 function useCompanyProductInfo(): Props {
+  const url = process.env.NEXT_PUBLIC_URL;
   const { data, error } = useSWR(
     [
-      'http://localhost:8081/api/v2/company',
+      `${url}/api/v2/company`,
       'jSowsoc6+Tu6tB8iHjS57DmnaJ0qkrrJgiCcCRqXEqJQO5edMdAeHlytcSVXpKCpHQNEXmJ2eGT/DqF+OJThbg==',
     ],
     fetcherHeader,

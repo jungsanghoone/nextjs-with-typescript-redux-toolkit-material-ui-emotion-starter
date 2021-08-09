@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable import/no-cycle */
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
@@ -6,27 +8,16 @@ import {
 import axios from 'axios';
 import { makeHeader } from '../../libs/makeComm';
 import { RootState } from '../rootReducer';
+import { ICompanyInfo } from '../../constants/CompanyInfo';
 
-interface CompanyInfo {
-  country_code: string;
-  workflow_capacity: string | number;
-  workflow_usage: number;
-  expiry_date: string;
-  create_email: string;
-  name: string;
-  contract_company_name: string;
-  sign_up_type: string;
-  grade_code: string;
-  create_date: string;
-}
+const url = process.env.NEXT_PUBLIC_URL;
 
 export const getCompanyProductInfoAction = createAsyncThunk(
   'companyInfo/getCompanyProductInfo',
   async () => {
     let result = initialState;
-    const url = 'http://localhost:8081/api/v2/company';
     const response = await axios.get(
-      url,
+      `${url}/api/v2/company`,
       makeHeader(
         'jSowsoc6+Tu6tB8iHjS57DmnaJ0qkrrJgiCcCRqXEqJQO5edMdAeHlytcSVXpKCpHQNEXmJ2eGT/DqF+OJThbg==',
       ),
@@ -40,7 +31,7 @@ export const getCompanyProductInfoAction = createAsyncThunk(
   },
 );
 
-const initialState: CompanyInfo = {
+const initialState: ICompanyInfo = {
   country_code: '',
   workflow_capacity: 0,
   workflow_usage: 0,
@@ -55,7 +46,7 @@ const initialState: CompanyInfo = {
 
 export const companyInfoSlice = createReducer(
   initialState,
-  (builder: ActionReducerMapBuilder<CompanyInfo>) =>
+  (builder: ActionReducerMapBuilder<ICompanyInfo>) =>
     builder.addCase(getCompanyProductInfoAction.fulfilled, (state, action) => {
       return { ...state, ...action.payload };
     }),
