@@ -1,40 +1,43 @@
+/* eslint-disable import/no-cycle */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/newline-after-import */
 import { IEnum } from '.';
 export class DocumentMenu implements IEnum<DocumentMenu> {
   private static _values = new Array<DocumentMenu>();
 
   public static readonly ALL = new DocumentMenu(
     'myturn,progress,complete,canceled,disposal',
-    '전체보기',
+    'WORKFLOW_view_all',
     '/images/icon-all.png',
   );
 
   public static readonly MYTURN = new DocumentMenu(
     'myturn',
-    '내 차례',
+    'WORKFLOW_view_myturn',
     '/images/icon-mine.png',
   );
 
   public static readonly PROGRESS = new DocumentMenu(
     'progress',
-    '진행 중',
+    'WORKFLOW_view_progress',
     '/images/icon-play.png',
   );
 
   public static readonly COMPLETE = new DocumentMenu(
     'complete',
-    '완료',
+    'WORKFLOW_view_complete',
     '/images/icon-complete.png',
   );
 
   public static readonly CANCELED = new DocumentMenu(
     'canceled',
-    '취소',
+    'WORKFLOW_view_canceled',
     '/images/icon-cancel.png',
   );
 
   public static readonly DISPOSAL = new DocumentMenu(
     'disposal',
-    '폐기',
+    'WORKFLOW_view_disposal',
     '/images/icon-delete.png',
   );
 

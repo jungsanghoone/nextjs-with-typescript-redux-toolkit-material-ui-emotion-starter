@@ -1,0 +1,20 @@
+{
+  "SideDocument": {
+    "DocumentStartButton": {
+      "WORKFLOW_start_button": "문서 작성하기"
+    },
+    "DocumentDashboard": {
+      "WORKFLOW_dashboard_progress": "진행 중",
+      "WORKFLOW_dashboard_important": "중요",
+      "WORKFLOW_dashboard_imminent": "마감임박"
+    },
+    "DocumentMenuList": {
+      "WORKFLOW_view_all": "전체보기",
+      "WORKFLOW_view_myturn": "내 차례",
+      "WORKFLOW_view_progress": "진행 중",
+      "WORKFLOW_view_complete": "완료",
+      "WORKFLOW_view_canceled": "취소",
+      "WORKFLOW_view_disposal": "폐기"
+    }
+  }
+}

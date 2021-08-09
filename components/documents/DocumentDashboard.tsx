@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslations } from 'next-intl';
 import MuiListItemText from '@material-ui/core/ListItemText';
 import Box from '@material-ui/core/Box';
 import { styled } from '@material-ui/core/styles';
@@ -24,10 +25,15 @@ const ListItemText = styled(MuiListItemText)(({ theme }) => ({
     color: '#6c6c6c',
     textAlign: 'center',
     marginTop: theme.spacing(1),
+    maxWidth: theme.spacing(6.75),
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
   },
 }));
 
 function DocumentDashboard(): JSX.Element {
+  const t = useTranslations('SideDocument.DocumentDashboard');
   const [important, setImportant] = React.useState(false);
   const handleImportant = () => setImportant(!important);
   return (
@@ -37,12 +43,33 @@ function DocumentDashboard(): JSX.Element {
           display: 'flex',
           justifyContent: 'center',
           height: theme => theme.spacing(11),
+          maxWidth: theme => theme.spacing(27.5),
         }}
       >
-        <CustomListItemButton>
-          <ListItemText primary="10" secondary="진행 중" />
+        <CustomListItemButton
+          sx={{
+            flexGrow: 0,
+            flexShrink: 0,
+            flexBasis: '70px',
+            justifyContent: 'center',
+            px: 1,
+          }}
+        >
+          <ListItemText
+            primary="10"
+            secondary={t('WORKFLOW_dashboard_progress')}
+          />
         </CustomListItemButton>
-        <CustomListItemButton onClick={handleImportant}>
+        <CustomListItemButton
+          onClick={handleImportant}
+          sx={{
+            flexGrow: 0,
+            flexShrink: 0,
+            flexBasis: '70px',
+            justifyContent: 'center',
+            px: 1,
+          }}
+        >
           <ListItemText
             primary={
               <Image
@@ -52,11 +79,22 @@ function DocumentDashboard(): JSX.Element {
                 height="32"
               />
             }
-            secondary="중요"
+            secondary={t('WORKFLOW_dashboard_important')}
           />
         </CustomListItemButton>
-        <CustomListItemButton>
-          <ListItemText primary="3" secondary="마감임박" />
+        <CustomListItemButton
+          sx={{
+            flexGrow: 0,
+            flexShrink: 0,
+            flexBasis: '70px',
+            justifyContent: 'center',
+            px: 1,
+          }}
+        >
+          <ListItemText
+            primary="3"
+            secondary={t('WORKFLOW_dashboard_imminent')}
+          />
         </CustomListItemButton>
       </Box>
     </nav>

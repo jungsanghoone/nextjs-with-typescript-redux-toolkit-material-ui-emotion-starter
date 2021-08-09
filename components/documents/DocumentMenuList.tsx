@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslations } from 'next-intl';
 import Box from '@material-ui/core/Box';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import MuiListItemText from '@material-ui/core/ListItemText';
@@ -22,9 +23,9 @@ const ListItemText = styled(MuiListItemText)<{ component?: React.ElementType }>(
 );
 
 function DocumentMenuList(props: Props): JSX.Element {
+  const t = useTranslations('SideDocument.DocumentMenuList');
   const { docSearchCondition, menuTitle, menuIcon } = props;
   const { selectedCondition, changeDocCondition } = useDocuments();
-
   return (
     <Box
       sx={{
@@ -40,7 +41,7 @@ function DocumentMenuList(props: Props): JSX.Element {
         <ListItemIcon sx={{ minWidth: 44 }}>
           <Image src={menuIcon} alt={menuTitle} width="24" height="24" />
         </ListItemIcon>
-        <ListItemText primary={menuTitle} />
+        <ListItemText primary={t(menuTitle)} />
       </CustomListItemButton>
     </Box>
   );

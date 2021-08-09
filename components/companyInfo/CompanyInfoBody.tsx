@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import * as React from 'react';
+import { useTranslations } from 'next-intl';
 import { styled } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Image from 'next/image';
@@ -26,6 +27,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function CompanayInfoBody(): JSX.Element {
+  const t = useTranslations();
   const { data, isLoading, isError } = useCompanyProductInfo();
 
   if (isLoading) return <CircularIndeterminate />;
@@ -48,7 +50,7 @@ function CompanayInfoBody(): JSX.Element {
       >
         <Grid container spacing={0} sx={{ height: 20 }}>
           <Grid item xs={5}>
-            <CustomTypography>잔여 문서</CustomTypography>
+            <CustomTypography>{t('COMPANY_remain')}</CustomTypography>
           </Grid>
           <Grid item xs={5} sx={{ textAlign: 'right' }}>
             <CustomTypography>

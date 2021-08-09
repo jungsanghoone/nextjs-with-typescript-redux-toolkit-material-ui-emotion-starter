@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { useTranslations } from 'next-intl';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 
 function DocumentStartButton(): JSX.Element {
+  const t = useTranslations('SideDocument.DocumentStartButton');
   return (
     <nav aria-label="document start">
       <List sx={{ display: 'flex', height: theme => theme.spacing(10) }}>
@@ -12,7 +14,7 @@ function DocumentStartButton(): JSX.Element {
             variant="contained"
             sx={{ width: '160px', height: '40px', fontWeight: 'bold' }}
           >
-            문서 작성하기
+            {t('WORKFLOW_start_button')}
           </Button>
         </ListItem>
       </List>

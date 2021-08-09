@@ -1,10 +1,13 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/no-cycle */
 import { IEnum } from '.';
+
 export class Page implements IEnum<Page> {
   private static _values = new Array<Page>();
 
   public static readonly DOCUMENT = new Page(
     '/documents/document',
-    '문서',
+    'WORKFLOW',
     '문서 설명~~~',
     '/images/icon-document-blue.png',
     '/images/icon-document.png',
@@ -12,7 +15,7 @@ export class Page implements IEnum<Page> {
 
   public static readonly TEMPLATE = new Page(
     '/templates/template',
-    '서식',
+    'TEMPLATE',
     '서식 설명~~~',
     '/images/icon-form-blue.png',
     '/images/icon-form.png',
@@ -20,7 +23,7 @@ export class Page implements IEnum<Page> {
 
   public static readonly BRANDING = new Page(
     '/branding',
-    '브랜딩',
+    'BRANDING',
     '브랜딩 설명~~~',
     '/images/icon-branding-blue.png',
     '/images/icon-branding.png',
@@ -28,7 +31,7 @@ export class Page implements IEnum<Page> {
 
   public static readonly SETTINGS = new Page(
     '/settings',
-    '설정',
+    'SETTINGS',
     '설정 설명~~~',
     '/images/icon-set-blue.png',
     '/images/icon-set.png',

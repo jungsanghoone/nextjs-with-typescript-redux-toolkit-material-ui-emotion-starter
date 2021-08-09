@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Box, Grid } from '@material-ui/core';
 import CustomTypography from '../cmn/CustomTypography';
 
 function CompanyInfoFooter(): JSX.Element {
+  const t = useTranslations();
   return (
     <Box
       sx={{
@@ -27,7 +29,7 @@ function CompanyInfoFooter(): JSX.Element {
         <Grid item>
           <Link href="/" passHref>
             <a>
-              <CustomTypography>로그아웃</CustomTypography>
+              <CustomTypography>{t('LOGOUT')}</CustomTypography>
             </a>
           </Link>
         </Grid>

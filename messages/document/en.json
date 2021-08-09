@@ -1,0 +1,20 @@
+{
+  "SideDocument": {
+    "DocumentStartButton": {
+      "WORKFLOW_start_button": "START NOW"
+    },
+    "DocumentDashboard": {
+      "WORKFLOW_dashboard_progress": "In Progress",
+      "WORKFLOW_dashboard_important": "Important",
+      "WORKFLOW_dashboard_imminent": "Deadline imminent"
+    },
+    "DocumentMenuList": {
+      "WORKFLOW_view_all": "See All",
+      "WORKFLOW_view_myturn": "To Do",
+      "WORKFLOW_view_progress": "In Progress",
+      "WORKFLOW_view_complete": "Complete",
+      "WORKFLOW_view_canceled": "Cancel",
+      "WORKFLOW_view_disposal": "Disposal"
+    }
+  }
+}

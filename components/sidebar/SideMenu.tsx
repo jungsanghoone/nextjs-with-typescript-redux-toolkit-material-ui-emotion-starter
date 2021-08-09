@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import MuiListItemButton from '@material-ui/core/ListItemButton';
@@ -26,6 +27,7 @@ function SideMenu(props: Props): JSX.Element {
   const { selectedPage } = usePage();
   const { relativeUrl } = selectedPage || '/documents/document';
   const { href, title, selectIcon, icon, end } = props;
+  const t = useTranslations();
   return (
     <>
       <Link href={href} passHref key={title}>
@@ -41,7 +43,7 @@ function SideMenu(props: Props): JSX.Element {
             height="32"
           />
           <ListItemText
-            primary={title}
+            primary={t(title)}
             primaryTypographyProps={{
               color: href === relativeUrl ? '#0199EB' : 'rgba(0, 0, 0, 0.54)',
               fontWeight: href === relativeUrl ? 'bold' : 400,
