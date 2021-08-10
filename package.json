@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/cache": "^11.4.0",
@@ -17,6 +18,8 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/system": "^5.0.0-beta.3",
     "@reduxjs/toolkit": "^1.6.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
     "@types/redux-logger": "^3.0.9",
     "axios": "^0.21.1",
     "next": "11.0.1",
@@ -30,21 +33,32 @@
     "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.15.0",
     "@emotion/babel-plugin": "^11.3.0",
+    "@types/jest": "^26.0.24",
     "@types/next-redux-wrapper": "^3.0.0",
+    "@types/node": "^16.4.13",
     "@types/react": "17.0.14",
     "@types/react-redux": "^7.1.18",
     "@types/redux": "^3.6.0",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
+    "babel-jest": "^27.0.6",
     "eslint": "7.30.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^7.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.6",
+    "jest-css-modules": "^2.1.0",
+    "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^11.0.1",
     "prettier": "^2.3.2",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^27.0.4",
+    "ts-node": "^10.2.0",
     "typescript": "4.3.5"
   }
 }
